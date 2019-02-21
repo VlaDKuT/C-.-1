@@ -9,9 +9,12 @@ namespace lesson5
     class lesson5
     {
 
-            protected static void Print(string ms, int x, int y)//объявляем собственный методо Print и в него передаем параметр строки и двух чисел
+            protected static void Print(string ms, int OrgX, int OrgY)//объявляем собственный методо Print и в него передаем текущие положение консоли и текст.
         {
-            Console.SetCursorPosition(x,y);
+            int x = OrgX / 2;//Перемещаем консоль на середину экрана
+            int y = OrgY / 2;
+            
+            Console.SetWindowPosition(x, y);
             Console.WriteLine(ms);
         }
 
@@ -32,13 +35,36 @@ namespace lesson5
             Console.ReadKey();
 
             Console.WriteLine("\nЗадание 5.б. Выводим по центру экрана Ваше 'Имя', 'Фамилию' и 'Горд проживания'.");
-            Console.SetCursorPosition(15, 11);
-            Console.WriteLine($"Сверим данные: Имя - {name}; Фамилия - {surname}; город проживания - {city};");
+
+            int origWidth, width;//Добавляем переменные для работы расположением консоли
+            int origHeight, height;
+
+            origWidth = Console.WindowWidth;//Узнаем текущие положение консоли
+            origHeight = Console.WindowHeight;
+            Console.WriteLine($"Текущие положение экрана: Высота - {origWidth}; Ширина - {origHeight}" );
+
+            //перемещаем консоль в центр
+            width = origWidth / 2;
+            height = origHeight / 2;
+            Console.SetWindowPosition(height,width);
+            Console.WriteLine($"Текущие положение экрана: Высота - {width}; Ширина - {height}\nПеремещаем консоль в центр экрана.");
+            Console.ReadKey();
+
+            Console.WriteLine($"\nВыводим данне по анкете.\nСверим данные: Имя - {name}; Фамилия - {surname}; город проживания - {city};");
+            Console.ReadKey();
+
+            //Возвращаем консоль в исходное положение
+            Console.WriteLine($"Перемещаем консоль в исходное положение. Текущие положение экрана: Высота - {origWidth}; Ширина - {origHeight}");
             Console.ReadKey();
 
             Console.WriteLine("\nЗадание 5.В. Выводим с помощью собственного метода Ваше 'Имя', 'Фамилию' и 'Горд проживания' по центру экрана.");
+            Console.ReadKey();
+            Console.WriteLine($"Текущие положение экрана: Высота - {width}; Ширина - {height}.\nПеремещаем консоль в центр экрана.");
+            Console.ReadKey();
+
+            //Помещаем текст в строковую переменную и передаем его в свой метод со значением координат
             string box = ($"Сверим данные: Имя - {name}; Фамилия - {surname}; город проживания - {city};");
-            Print(box,15,14);
+            Print(box, origHeight, origWidth);
             Console.ReadKey();
 
         }
