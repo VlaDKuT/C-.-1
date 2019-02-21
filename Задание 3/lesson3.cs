@@ -8,6 +8,12 @@ namespace Задание_3
 {
     class lesson3
     {
+        static double DistanceCalculation(double coordX1, double coordY1, double coordX2, double coordY2)//объявляем собственный метод DistanceCalculation. Он расчитывает расстояние между точками на основе переданных координат
+        {
+            double r;
+            return r = Math.Round(Math.Sqrt(Math.Pow(coordX2 - coordX1, 2) + Math.Pow(coordY2 - coordY1, 2)), 1);
+        }
+        
         static void Main(string[] args)
         {
             Console.WriteLine("Привет!\nДанная программа предназначена для расчета расстояние между точками с координатами (x1,y1) и (x2,y2)");
@@ -30,8 +36,8 @@ namespace Задание_3
             double r = Math.Sqrt((X2 - X1) * (X2- X1) + (Y2 - Y1) * (Y2 - Y1));//Расчитываем растояние между введеными координатами и записываем в переменную r
             Console.WriteLine($"\nВходящие данные: \nКоордината первой точки ({X1String},{Y1String}); \nКоордината второй точки ({X2String},{Y2String});\nРасстояние между точками равно - {r:F2}");
 
-            r = Math.Round(Math.Sqrt(Math.Pow(X2 - X1, 2) + Math.Pow(Y2 - Y1, 2)),1);//Рассчет растояния с использованием метода
-            Console.WriteLine($"\nВходящие данные: \nКоордината первой точки ({X1String},{Y1String}); \nКоордината второй точки ({X2String},{Y2String});\nРасстояние между точками равно - {r};\nРассчет произведен с помощью методов.");
+            double res = DistanceCalculation(X1,Y1,X2,Y2);//Объявляем новую переменную и записываем в нее результат вычисления расстояния используя свой метод, передав координаты.
+            Console.WriteLine($"\nВходящие данные: \nКоордината первой точки ({X1String},{Y1String}); \nКоордината второй точки ({X2String},{Y2String});\nРасстояние между точками равно - {res};\nРассчет произведен с помощью своего метода.");
             Console.ReadKey();
 
         }
