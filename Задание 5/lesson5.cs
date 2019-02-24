@@ -11,8 +11,8 @@ namespace lesson5
 
             protected static void Print(string ms, int OrgX, int OrgY)//объявляем собственный методо Print и в него передаем текущие положение консоли и текст.
         {
-            int x = OrgX / 2;//Перемещаем консоль на середину экрана
-            int y = OrgY / 2;
+            int x = OrgX * 2;//Перемещаем консоль на середину экрана
+            int y = OrgY * 2;
             
             Console.SetWindowPosition(x, y);
             Console.WriteLine(ms);
@@ -42,11 +42,15 @@ namespace lesson5
             origWidth = Console.WindowWidth;//Узнаем текущие положение консоли
             origHeight = Console.WindowHeight;
             Console.WriteLine($"Текущие положение экрана: Высота - {origWidth}; Ширина - {origHeight}" );
+            Console.WriteLine("The current buffer height is {0} rows.",
+                      Console.BufferHeight);
+            Console.WriteLine("The current buffer width is {0} columns.",
+                              Console.BufferWidth);
 
             //перемещаем консоль в центр
             width = origWidth / 2;
             height = origHeight / 2;
-            Console.SetWindowPosition(height,width);
+           // Console.SetWindowPosition(100,65);
             Console.WriteLine($"Текущие положение экрана: Высота - {width}; Ширина - {height}\nПеремещаем консоль в центр экрана.");
             Console.ReadKey();
 
@@ -61,6 +65,8 @@ namespace lesson5
             Console.ReadKey();
             Console.WriteLine($"Текущие положение экрана: Высота - {width}; Ширина - {height}.\nПеремещаем консоль в центр экрана.");
             Console.ReadKey();
+
+            Console.SetWindowPosition(origHeight, origWidth);
 
             //Помещаем текст в строковую переменную и передаем его в свой метод со значением координат
             string box = ($"Сверим данные: Имя - {name}; Фамилия - {surname}; город проживания - {city};");

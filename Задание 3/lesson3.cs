@@ -11,7 +11,7 @@ namespace Задание_3
         static double DistanceCalculation(double coordX1, double coordY1, double coordX2, double coordY2)//объявляем собственный метод DistanceCalculation. Он расчитывает расстояние между точками на основе переданных координат
         {
             double r;
-            return r = Math.Round(Math.Sqrt(Math.Pow(coordX2 - coordX1, 2) + Math.Pow(coordY2 - coordY1, 2)), 1);
+            return r = Math.Round(Math.Sqrt(Math.Pow(coordX2 - coordX1, 2) + Math.Pow(coordY2 - coordY1, 2)), 2);
         }
         
         static void Main(string[] args)
